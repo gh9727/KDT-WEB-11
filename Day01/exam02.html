@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>설문조사</h4>
+    <form>
+        <!-- label 태그: input에 라벨을 달아주는 태그 -->
+        <!-- id 속성: html에 딱 하나의 id 값을 넣을 수 있음, id는 중복안됨 -->
+        <!-- label for 속성 + input id 속성 ==> 라벨만 눌러도 텍스트창 클릭됨 -->
+        <label for="name">이름</label>
+        <input type="text" id = "name" /> <br/>
+        <label for="email">이메일</label>
+        <input type="email" placeholder="love@example.com" id="email"/>
+    </form>
+
+
+    <h4>나이</h4>
+    <input type="number" />
+    <!-- TIP) input*6 입력 후 엔터키 누르면 input 창 6개 자동 생성됨 -->
+    <!-- TIP) Ctrl + Alt + (위,아래) 방향키 ==> 여러 줄 동시 작성 가능 -->
+    <form>
+        <input type="radio" name="age" id="one"/>
+        <label for = "one">10대</label>
+        <input type="radio" name="age" id="two" />
+        <label for = "two">20대</label>
+        <input type="radio" name="age" id="three" />
+        <label for = "three">30대</label>
+        <input type="radio" name="age" id="four" />
+        <label for = "four">40대</label>
+        <input type="radio" name="age" id="five" />
+        <label for = "five">50대 이상</label>
+        <input type="radio" name="age" id="six" /> 
+        <label for = "five">60대 이상</label>
+    </form>
+
+    <h4>원하는 강의(복수응답 가능합니다.)</h4>
+    <form>
+        <input type="checkbox" name="lecture" id="a"/>
+        <label for="a">html</label>
+        <input type="checkbox" name="lecture" id="b"/>
+        <label for="b">javascript</label>
+        <input type="checkbox" name="lecture" id="c"/>
+        <label for="c">css</label>
+        <br />
+        <br />
+        <textarea cols="60" rows = "8" placeholder="하고 싶은 말을 써주세요:)"></textarea>
+        <input type="submit" name="제출" />
+    </form>
+</body>
+</html>
