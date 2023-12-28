@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>가격표</h1>
+    <!-- table 태그, html 태그와 유사(head부, body부) -->
+    <!-- cellpadding 속성: td와 표 사이의 간격 -->
+    <!-- cellspacing 속성: 표 라인 간격 벌리기 -->
+    <table border="1" cellspacing="0" cellpadding ="10">
+        <thead>
+            <tr>
+                <th>메뉴</th>
+                <th>가격</th>
+                <th>비고</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>국물떡볶이</td>
+                <td>5,000원</td>
+                <td>매운맛 선택(보통, 맵게, 아주맵게)</td>
+            </tr>
+            <tr>
+                <td>김밥</td>
+                <td>3,000원</td>
+                <td>두줄이상 주문가능</td>
+            </tr>
+            <tr>
+                <td>순대</td>
+                <td>4,000원</td>
+                <td>내장 추가 시 1,000원</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>New 가격표</h2>
+    <table border = "1" cellspacing ="0" cellpadding="10" >
+        <thead>
+            <tr>
+                <!-- TIP) th*3 후, 데이터 쓰고 Tab 키-->
+                <th>메뉴</th>
+                <th>가격</th>
+                <th>비교</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>국물떡볶이</td>
+                <td>6,000원</td>
+                <td>맵기 선택 가능</td>
+            </tr>
+            <tr>
+                <td>참치김밥</td>
+                <!-- td rowspan 속성: 칸을 차지하는 행의 개수 지정 -->
+                <td rowspan="2">4,000원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>치즈김밥</td>
+                
+                <td></td>
+            </tr>
+            <tr>
+                <!-- td colspan 속성: 칸을 차지하는 열의 개수 지정 -->
+                <td colspan="3">순대 (품절)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
