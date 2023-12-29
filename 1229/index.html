@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 부모 선택자에 css값을 지정한다면 자식 태그들도 그 값이 적용된다. */
+        div {
+            color:hsl(107, 76%, 60%);
+        }
+
+        .orange {
+            color: cyan;
+        }
+        .bgColor {
+            background-color: green;
+        }
+        #orange {
+            /* font-size: 글씨의 크기를 변경 */
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- ul 선택자로 color를 변경하면 li도 ul 선택자의 color로 변경됨 -->
+        <ul>
+            <!-- li태그는 block 태그다. -->
+            <li>사과</li>
+            <li>딸기</li>
+            <li id="orange" class="orange bgColor">오렌지</li>
+        </ul>
+        <div>당근</div>
+        <p>토마토</p>
+        <!-- class 속성값을 2개 이상 집어넣을수도 있다. -->
+        <span class="orange bgColor">오렌지</span>
+    </div>
+</body>
+</html>

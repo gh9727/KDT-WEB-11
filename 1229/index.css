@@ -1,0 +1,31 @@
+/* 복합 선택자: 자식 선택자 */
+/* 오직 자식만을 선택함(후손 불가능) */
+ul > .st {
+    color:red;
+}
+
+div > parent {
+    background-color: cyan;
+}
+
+/* 복합 선택자: 후손 선택자 */
+/* 자식을 포함한 자식의 자식까지 선택함 */
+
+/* div .orange {
+    color:blue;
+} */
+.main .orange {
+    color:blue;
+}
+
+/* 복합 선택자: 인접 형제 선택자 */
+/* 애니메이션 등을 할때 사용됨 */
+/* .orange + li {
+    color:green;
+} */
+
+/* 일반 형제 선택자 */
+/* 인접 형제 태그들 전부 적용 */
+.orange ~ li {
+    color:green;
+}
