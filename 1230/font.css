@@ -1,0 +1,26 @@
+/* 네이버 검색 : 눈누 폰트(폰트 변경 방식) */
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 폰트는 타이틀을 제외하고 모두 같은 폰트를 사용하기에 기본(전체) 선택자 */
+
+/* 구글 : 링크 연결 후 폰트 변경을 원하는 태그들을 선택자로 고른다. */
+/* 구글 : 구글 폰트 웹사이트에 font-family 속성으로 작성된 부분을 Ctrl C + Ctrl V 해서 내가 작성한 선택자에 붙여넣는다.  */
+/* 눈누 : 웹폰트 방식으로 해당 눈누 사이트에 원하는 글꼴을 선택한 후 @font~로 작성된 부분을 복사해서 가져온다. */
+/* 눈누 : 가져온 font-family 속성을 내가 직접 다시 한번 작성한다. */
+* {
+    font-family: 'JalnanGothic', sans-serif;
+}
+
+
+.content1 {
+    color:red;
+    font-size: 20px;
+    font-weight: 700;
+    /* line-height 속성: 행간의 간격*/
+    line-height: 36px;
+}

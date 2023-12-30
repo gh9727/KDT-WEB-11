@@ -1,0 +1,13 @@
+.box {
+    display: inline-block;
+    background-color: orange;
+    width: auto;
+    height:200px;
+}
+
+.box > span {
+    display: inline-block;
+    width:200px;
+    height: 100px;
+    margin-right:100px;
+}

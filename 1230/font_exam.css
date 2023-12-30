@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'YClover-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* 눈누 폰트 */
+.content1 {
+    font-family: 'YClover-Bold';
+}
+/* 구글 폰트 */
+.content2 {
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Single Day', cursive;
+
+}

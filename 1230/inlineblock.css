@@ -1,0 +1,30 @@
+/* div는 display: block 이 디폴트 값 */
+.main > div {
+    /* display: 레이아웃을 꾸밀 때 사용. 화면에 어떻게 요소들을 보여줄 것 인지 설정.  */
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin:20px;
+    padding:20px;
+}
+
+/* TIP) 모든 요소는 border를 가지고 있고, border를 기준으로 외부(margin), 내부(padding)으로 생각하면 됨. */
+.main {
+    /* margin: 요소의 외부 여백을 지정함. */
+
+    /* margin:10px; */
+    /* margin:20px 40px; */
+    /* margin:20px 40px 60px; */
+    /* margin:10px 30px 50px 70px; */
+    margin-top:20px;
+    /* border: 테두리 선을 그리는 속성 */
+    border:solid;
+
+    /* padding: 요소의 내부 여백을 지정함. */
+    padding:30px;
+}
+
+
+/* span {
+    display: block;
+} */

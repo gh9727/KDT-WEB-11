@@ -1,0 +1,8 @@
+.text {
+    width:300px;
+    /* 속성이름 구분잘하기 text 인지 font인지 */
+    /* text-align: 문자를 정렬해줌(왼쪽, 오른쪽, 가운데, 양쪽방향) */
+    /* text-decoration: 문자 선 그어줌(위,아래,가운데) */
+    text-align:justify;
+    text-decoration:line-through;
+}
