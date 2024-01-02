@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    background-color: bisque;
+    height: 100vh;
+}
+
+
+div {
+    background-color: blue;
+    color:white;
+    /* 현재 화면의 10분의 1크기 */
+    width: calc(100vw / 10);
+    height: calc(100vw / 10);
+    margin: auto;
+    text-align: center;
+
+    /* 보통 height 값과 동일함 */
+    line-height: calc(100vw / 10);
+
+    /* 100vw / 20: 전체 너비 5% */
+    margin-top:calc(50vh - (100vw / 20));
+}

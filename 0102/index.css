@@ -1,0 +1,15 @@
+.bgColor {
+    background-color: aquamarine;
+    /* max-width:500px;
+    max-height:500px; */
+
+    /* 최소 500px의 너비, 높이를 가진다. */
+    /* calc(): 반응형에서 사용, 단위가 다를때 사용 */
+    min-width: calc(1920px- 80vh );
+    min-height: 500px;
+
+    p {
+        /* 글자간의 높이 간격 */
+        line-height: 40px;
+    }
+}

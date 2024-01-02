@@ -1,6 +1,6 @@
 /* 가상 클래스 선택자 : a:hover 사용 */
 /* a:hover ==> 마우스 커서가 링크에 올라가 있는 동안 배경색 및 폰트색이 변경된다 */
-a:hover {
+.hreflink:hover {
     background-color: cyan;
     color: red;
 }

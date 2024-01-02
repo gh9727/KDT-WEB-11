@@ -1,0 +1,21 @@
+.border {
+
+    padding:30px;
+    width: 100px;
+    height: 100px;
+    border-width: 3px 6px 9px 12px;
+    border-top-style: solid;
+    border-left-style: dashed;
+    border-right-style: inset;
+    border-bottom-style: dotted;
+    border-top-color: red;
+    border-left-color: blue;
+    border-right-color: cyan;
+    border-bottom-color: green;
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

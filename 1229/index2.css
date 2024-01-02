@@ -4,19 +4,16 @@ ul > .st {
     color:red;
 }
 
-div > parent {
-    background-color: cyan;
-}
 
 /* 복합 선택자: 후손 선택자 */
 /* 자식을 포함한 자식의 자식까지 선택함 */
 
-/* div .orange {
-    color:blue;
-} */
-.main .orange {
+div .orange {
     color:blue;
 }
+/* .main .orange {
+    color:blue;
+} */
 
 /* 복합 선택자: 인접 형제 선택자 */
 /* 애니메이션 등을 할때 사용됨 */
@@ -26,6 +23,9 @@ div > parent {
 
 /* 일반 형제 선택자 */
 /* 인접 형제 태그들 전부 적용 */
-.orange ~ li {
+.orange ~ .st {
     color:green;
 }
+
+/* 부모 li태그에 css가 적용되면 자식 div에도 css가 적용된다. */
+/* 이 부분 조금 애매함 */

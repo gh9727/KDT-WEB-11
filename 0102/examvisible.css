@@ -1,0 +1,11 @@
+.display {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+}
+
+.display:hover {
+    opacity: 0;
+    /* visibility: hidden;
+    display:none; */
+}   

@@ -1,0 +1,26 @@
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: aquamarine;
+    /* border 단축 속성 */
+    /* border: 2px solid #ff0000; */
+
+    /* style > color,width */
+    border-style: inset;
+    border-color: red;
+    border-width: 3px;
+    /* padding, margin 속성값 특징과 동일함 */
+    /* border-width: 5px 10px 20px; */
+    /* border-width: 5px 10px 20px 30px */
+
+    /* 주의사항: border를 여러개 사용할 경우 
+    1번박스와 2번박스의 px가 겹쳐 px이 늘어난 것 처럼 볼 수 있다.
+    */
+
+    /* 각 방향에 radius값 지정할 시 위치 명시해야함 */
+    border-radius:0 10px 0 0;
+    border-bottom-right-radius:50px;
+    border-top-left-radius: 10px;
+    /* 원 만들기 -> 정사각형일때만 가능 */
+    border-radius:50%;
+}

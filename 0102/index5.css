@@ -1,0 +1,35 @@
+.parent {
+    position: relative;
+    background-color: blue;
+    width:500px;
+    height:500px;
+}
+.item1 {
+    position: relative;
+    background-color: yellowgreen;
+    width:100px;
+    height:80px;
+    top:30px;
+    left:50px;
+}
+.item2 {
+    background-color: red;
+    width:150px;
+    height:100px;
+
+    /* 기본값은 static이라 변화X */
+    /* 상대적 위치에 따라 바뀜 */
+    /* position: relative; */
+    /* absolute를 쓰기 위해선 부모 태그의 position 값을 relative로 지정해야한다 */
+    position: absolute;
+    bottom:30px;
+    right:30px;
+}
+.item3 {
+    position: fixed;
+    background-color: orange;
+    width:100px;
+    height:150px;
+    right:100px;
+    top:100px;
+}
