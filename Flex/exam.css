@@ -1,0 +1,24 @@
+.container {
+    background-color: bisque;
+    width: 500px;
+    height: 500px;
+    display:flex;
+    /* flex-direction: row; */
+    /* flex-direction: row-reverse; */
+    flex-direction: column;
+}
+.item {
+    width: 100px;
+    height: 100px;
+}
+.item1 {
+    background-color: red;
+}
+
+.item2 {
+    background-color: blue;
+}
+
+.item3 {
+    background-color: yellow;
+}

@@ -1,0 +1,51 @@
+body {
+    background-color: bisque;
+}
+
+.research {
+    margin-top: 10px;
+    margin-bottom:5px;
+    color: rgb(173, 86, 156);
+}
+.box1 {
+    width:250px;
+    height:auto;
+    border: 5px solid purple;
+}
+.box1 > label {
+    color: rgb(58, 149, 94);
+}
+
+.age {
+    margin-top: 40px;
+    margin-bottom:5px;
+    color: red;
+}
+.box2 {
+    width:430px;
+    height:auto;
+    border: 5px dotted RED;
+}
+.box2 *:nth-child(2n) {
+    color:blue;
+}
+
+.class {
+    color: rgb(44, 46, 103);
+    width: 290px;
+    height: auto;
+    border: 3px solid rgb(0, 255, 115);
+    margin-top: 40px;
+    margin-bottom: 3px;
+}
+.class u {
+    color: rgb(145, 19, 71);
+}
+.box3 textarea {
+    margin-top: 10px;
+    width: 500px;
+    height: 100px;
+    background-color: cyan;
+    border: 5px solid black;
+    border-radius: 20px;
+}

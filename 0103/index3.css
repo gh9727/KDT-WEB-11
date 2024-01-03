@@ -1,0 +1,17 @@
+div {
+    background-color: orange;
+    background-image: url("pine-hills-8419433_1920.jpg");
+    width: 1920px;
+    height: 1920px;
+    /* background-repeat: 배경 이미지 반복 설정 */
+    background-repeat: no-repeat;
+    /* background-position: 배경 이미지 위치 설정 */
+    background-position: bottom;
+    background-size: cover;
+    /* background-attachment: 배경이미지 스크롤 설정 */
+    background-attachment: fixed;
+    overflow: scroll;
+}   
+p {
+    height: 3000px;
+}
