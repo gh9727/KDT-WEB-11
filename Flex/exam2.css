@@ -1,0 +1,98 @@
+.header0 {
+    display: flex;
+    justify-content: center;
+}
+.header-a {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(213, 209, 209);
+    font-weight: bold;
+    font-size: 1.33em;
+}
+/* header0 + header-a 끝 */
+
+.header1 {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+.logo {
+    margin-left:25px;
+}
+.menubox {
+    display: flex;
+    align-items: center;
+}
+.menu1 {
+    margin-right: 25px;
+}
+/* header1 끝 */
+
+.header2 {
+    margin-top:50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu2-1 {
+    margin-left:30px;
+}
+.menu2-3 {
+    margin-right:30px;
+}
+/* header2 끝 */
+.header3 {
+    margin-top:50px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.menubox3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo3 {
+    margin-left : 25px;
+}
+.menu3 {
+    margin-right: 25px;
+}
+.login {
+    margin-right: 25px;
+}
+/* header3 끝 */
+.header4 {
+    width: 100%;
+    height: 40px;
+    background-color: pink;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.33em;
+}
+.select {
+    color: white;
+}
+/* header4 끝 */
+.header5 {
+    margin-top:30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menubox5-1 {
+    display: flex;
+}
+.menu5 {
+    margin-left:25px;
+}
+.menubox5-2 {
+    display: flex;
+}
+.menu5-2 {
+    margin-right: 25px;
+}
+/* header5 끝 */

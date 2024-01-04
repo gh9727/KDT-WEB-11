@@ -1,0 +1,88 @@
+
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    position: relative;
+
+    /* animation 속성 */
+    animation-name: my-ani;
+    /* 애니메이션 진행 걸리는 시간 */
+    animation-duration: 2s;
+    /* 5초뒤에 애니메이션 실행 */
+    animation-delay: 5s;
+    /* 반복 횟수 */
+    animation-iteration-count: 2;
+    /* 애니메이션 진행 속도 */
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes my-ani {
+    0% {
+        left: 0px;
+    }
+    25% {
+        left:200px;
+    }
+    50% {
+        left:400px;
+    }
+    75% {
+        left: 200px;
+    }
+    100% {
+        left: 0px;
+    }
+}
+
+.bounce-ball1 {
+    top: 0;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius:50%;
+    background-color: black;
+
+        /* animation 속성 */
+        animation-name: ball1;
+        /* 애니메이션 진행 걸리는 시간 */
+        animation-duration: 0.5s;
+        /* 5초뒤에 애니메이션 실행 */
+        animation-delay: 1s;
+        /* 반복 횟수 */
+        animation-iteration-count: infinite;
+        /* 애니메이션 진행 속도 */
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+}
+@keyframes ball1 {
+    to {
+        top: 50px;
+    }
+    from {
+        top: 300px;
+    }
+}
+
+.bounce-ball2 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color:tomato;
+    position: absolute;
+    animation-name: bounce2;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+@keyframes bounce2 {
+    from,
+    to {
+        bottom: 0px;
+        animation-timeline: ease-out;
+    }
+    50% {
+        bottom: 300px;
+        animation-timing-function: ease-in;
+    }
+}

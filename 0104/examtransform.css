@@ -1,0 +1,23 @@
+div {
+    position: relative;
+}
+div > img {
+    position: absolute;
+    top: 150px;
+    width: 250px;
+    height: 250px;
+    transform: rotateX(45deg) skewY(20deg);
+}
+
+div img:nth-child(1) {
+    left: 100px;
+    z-index: 3;
+}
+div img:nth-child(2) {
+    left: 300px;
+    z-index: 2;
+}
+div img:nth-child(3) {
+    left: 500px;
+    z-index: 1;
+}
