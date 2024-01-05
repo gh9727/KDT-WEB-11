@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = Number(prompt("첫번째 숫자를 입력해주세요"));
+        let num2 = Number(prompt("두번째 숫자를 입력해주세요"));
+        // 더하기
+        function add(num_1,num_2){
+            alert(num_1 + num_2);
+        }
+        // 빼기
+        function sub(num_1,num_2){
+            alert(num_1 - num_2);
+        }
+        // 나누기
+        function div(num_1,num_2){
+            alert(num_1 / num_2);
+        }
+        // 곱하기
+        function mul(num_1,num_2){
+            alert(num_1 * num_2);
+        }30
+    </script>
+
+    <button onclick="add(num1,num2);">더하기</button>
+    <button onclick="sub(num1,num2);">빼기</button>
+    <button onclick="mul(num1,num2);">곱하기</button>
+    <button onclick="div(num1,num2);">나누기</button>
+</body>
+</html>
