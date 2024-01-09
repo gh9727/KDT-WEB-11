@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h4>방명록입니다.</h4>
+        <form>
+            <label for="writer"></label>
+            <b>작성자 </b><input type="text" id="writer" /><br />
+            <label for="content"><b>내용</b></label>
+            <input type="text" id="content" style="width: 300px" />
+            <br /><br />
+            <button type="button" onclick="event();">작성</button>
+        </form>
+        <br />
+        <table border="1" id="table">
+            <thead>
+                <tr id="tr">
+                    <th>번호</th>
+                    <th>작성자</th>
+                    <th>내용</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+        </table>
+        <script src="exam2.js"></script>
+    </body>
+</html>
