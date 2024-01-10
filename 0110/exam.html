@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <style>
+            .btn {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="main" style="border: 1px solid">
+                <div class="box">
+                    <img src="aa.png" alt="" />
+                </div>
+                <button class="btn" type="button">사과</button>
+                <button class="btn" type="button;">바나나</button>
+                <button class="btn" type="button">포도</button>
+                <button class="btn" type="button">복숭아</button>
+            </div>
+            <br />
+            <div class="main" style="border: 1px solid">
+                <img id="img" src="" alt="" />
+                <div class="box">
+                    <span style="background-color: yellow">과일</span>을 <br />
+                    <span>골라볼게요</span>
+                </div>
+                <button class="btn" type="button" onclick="apple();">사과</button>
+                <button class="btn" type="button" onclick="banana();">바나나</button>
+                <button class="btn" type="button" onclick="grape();">포도</button>
+                <button class="btn" type="button" onclick="pitch();">복숭아</button>
+            </div>
+        </div>
+        <script src="exam.js"></script>
+    </body>
+</html>
