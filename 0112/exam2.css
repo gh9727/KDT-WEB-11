@@ -1,0 +1,28 @@
+@media (min-width: 500px) {
+    body {
+        background-color: skyblue;
+    }
+}
+@media (max-width: 300px) {
+    body {
+        background-color: orange;
+    }
+}
+
+@font-face {
+    font-family: 'DOSPilgiMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSPilgiMedium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@media (max-height: 300px) {
+    p {
+        font-family: 'DOSPilgiMedium', sans-serif;
+    }
+}
+
+@media (min-height: 500px) {
+    p {
+        background-color: green;
+    }
+}
