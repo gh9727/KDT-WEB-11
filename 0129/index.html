@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let lists = ['apple', 'grape'];
+            // 기존 방식
+            console.log(lists[0], lists[1]);
+            // 배열 구조 분해(순서 매우 중요): 배열의 각 요소를 변수에 할당 + 변수에서 값 할당도 가능함
+            let [fruit1, fruit2, fruit3 = 'peach'] = lists;
+            console.log('fruit:', fruit1, '/', 'fruit:', fruit2);
+            console.log('fruit:', fruit3);
+            fruit1 = 'banana';
+            console.log('fruit:', fruit1);
+
+            // 교환
+            let x = 1,
+                y = 3;
+            [x, y] = [y, x];
+            console.log(x, y);
+
+            // 객체
+            const obj = {
+                // key(변수) : value(값)
+                name: 'Wale',
+                age: 21,
+                gender: 'M',
+                friends: ['gra', 'qua'],
+                hello: function () {
+                    console.log('hello world');
+                },
+                'kdt-11': 'kdt-11기',
+            };
+            obj.age = 29;
+            console.log(obj.name, '나이:', obj.age);
+            obj.hello();
+            console.log(obj.friends[0], obj.friends[1]);
+
+            console.log(obj['name']);
+
+            obj.city = '서울';
+            console.log(obj.city);
+
+            // 오브젝트 변수를 문자열로 선언해서 해당 문자열을 불러오기
+            console.log(obj['kdt-11']);
+
+            // console.log(obj);
+
+            // 오브젝트(객체) 구조 분해 할당
+            // city = '인천' : 구조 분해 선언시 값을 할당만 할 수 있고, 값을 변경할 수는 없다.
+            let { name, city = '인천', age } = obj;
+            const { friends, hello, age: newAge } = obj; // age가 중복됨. 변수명 대체 가능 -> : 연산자 써야함
+            city = '인천';
+            console.log(name, city, age);
+            console.log(friends);
+            hello;
+        </script>
+    </body>
+</html>

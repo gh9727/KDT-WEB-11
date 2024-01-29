@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            class Shape {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                }
+                getArea() {
+                    return this.x * this.y;
+                }
+            }
+            let rect1 = new Shape(3, 4);
+            console.log(rect1.getArea());
+            // ======================================================================================
+            class Rectangle extends Shape {
+                constructor(x, y) {
+                    super(x, y);
+                }
+                getLength() {
+                    return Math.sqrt(this.x * this.x + this.y * this.y);
+                }
+            }
+            let rec = new Rectangle(10, 10);
+            console.log(rec.getLength());
+            // ======================================================================================
+            class Triangle extends Shape {
+                constructor(x, y) {
+                    super(x, y);
+                }
+                getArea() {
+                    return (this.x * this.y) / 2;
+                }
+            }
+            let tri = new Triangle(4, 6);
+            console.log(tri.x);
+            console.log(tri.y);
+            console.log(tri.getArea());
+            // ======================================================================================
+            class Circle extends Shape {
+                constructor(x, y, radius) {
+                    super(x, y);
+                    this.radius = radius;
+                }
+                getArea() {
+                    return 3.14 * this.radius * this.radius;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // spread 연산자
+            const a = [1, 2, 3];
+            const b = [4, 5];
+
+            // 배열 합치기
+            // 1. 함수 방식: concat
+            const concat = a.concat(b); // a 배열에 b 배열 요소를 추가
+            console.log(concat);
+            // 2. spread 방식
+            const spread = [...a, ...b];
+            console.log(spread);
+
+            // 객체와 spread
+            const obj = {
+                name: '홍길동',
+                age: 30,
+            };
+            console.log({ ...obj }); // 이 코드는 자주 사용 안함
+            const str = 'hello';
+            console.log(...str); // 하나의 문자열이 각 문자로 나눠진다
+            console.log([...str]);
+
+            // rest 연산자
+            function get(a, b, ...rest) {
+                console.log(a, b, rest);
+                console.log(rest[0], rest[1], rest[2]);
+            }
+            const arr = [10, 20, 30, 40, 50];
+            get(...arr);
+        </script>
+    </body>
+</html>

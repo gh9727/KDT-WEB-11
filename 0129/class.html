@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // class
+            class Cat {
+                // 생성자 : 클래스 선언 시 디폴트로 선언됨
+                // 클래스의 인스턴스 생성시 생성되는 것(선택)
+                constructor(name, age) {
+                    // 속성
+                    this.name = name;
+                    this.age = age;
+                }
+                // 메소드 : class 에서는 함수를 메소드라고 부름 + function 키워드를 쓰지 않는다.
+                mew() {
+                    console.log(this.name, '야옹');
+                }
+                eat() {
+                    console.log(this.name, '먹음');
+                }
+            }
+            let cat1 = new Cat('나비', 2);
+            let cat2 = new Cat('랑비', 6);
+            cat1.mew();
+            cat2.mew();
+            cat1.eat();
+            cat2.eat();
+
+            // 상속
+            class House {
+                door() {
+                    console.log('문을 열고 닫습니다');
+                }
+                window() {
+                    console.log('창문을 열고 닫습니다');
+                }
+            }
+            const hos1 = new House();
+            hos1.door();
+            hos1.window();
+            // Apartment가 부모 House를 상속받음 : House 클래스 메소드를 사용할 수 있음 --> *변수 애매함*
+            class Apartment extends House {
+                elevator() {
+                    console.log('엘레베이터를 탑승합니다');
+                }
+            }
+            const apart = new Apartment();
+            apart.window();
+            apart.door();
+            apart.elevator();
+
+            class Shape {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                }
+                getArea() {
+                    return this.x * this.y;
+                }
+            }
+            let rect1 = new Shape(3, 4);
+            console.log(rect1.getArea());
+
+            class Rectangle extends Shape {
+                getLength() {
+                    Math.sqrt(x * x + y * y);
+                }
+            }
+
+            class Triangle extends Shape {
+                getArea() {
+                    return (x * y) / 2;
+                }
+            }
+
+            class Circle extends Shape {
+                constructor(radius) {
+                    this.radius = radius;
+                }
+                getArea() {
+                    return 3.14 * radius * radius;
+                }
+            }
+            let rect = new Rectangle(2, 2);
+            rect.getLength();
+            let tri = new Triangle(2, 2);
+            let cir = new Circle(5);
+        </script>
+    </body>
+</html>
