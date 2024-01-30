@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 실습 2(에러 발생 async 변수명 === 함수명)
+            function call(name) {
+                return new Promise(function (resolve, reject) {
+                    setTimeout(() => {
+                        console.log(name);
+                        resolve(name);
+                    }, 1000);
+                });
+            }
+            function back() {
+                return new Promise(function (resolve, reject) {
+                    setTimeout(() => {
+                        let txt = 'back';
+                        console.log(txt);
+                        resolve(txt);
+                    }, 1000);
+                });
+            }
+            function hell() {
+                return new Promise(function (resolve, reject) {
+                    setTimeout(() => {
+                        resolve('callback hell');
+                    }, 1000);
+                });
+            }
+            // aysnc 사용 주의 사항 : 변수명과 함수명이 같으면 에러뜬다.
+            async function exec() {
+                let name = await call('kim');
+                console.log(name + ' 반가워');
+                let back_result = await back();
+                console.log(back_result + ' 을 실행했구나');
+                let hell_result = await hell();
+                console.log('여기는 ' + hell_result);
+            }
+            exec();
+
+            // 실습 3(함수 사용 이유 : 코드의 모듈화(간결 & 단축) + 변수 사용 유무 + delay 매개 변수로 지정)
+            function changeColor(newColor, delay) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        document.body.style.backgroundColor = newColor;
+                        resolve();
+                    }, delay);
+                });
+            }
+            async function exec2() {
+                await changeColor('red', 1000);
+                await changeColor('orange', 2000);
+                await changeColor('yellow', 3000);
+                await changeColor('green', 1000);
+                await changeColor('blue', 700);
+            }
+            exec2();
+        </script>
+    </body>
+</html>

@@ -29,6 +29,7 @@
             }
             let rec = new Rectangle(10, 10);
             console.log(rec.getLength());
+            console.log(rec.getArea());
             // ======================================================================================
             class Triangle extends Shape {
                 constructor(x, y) {
@@ -39,19 +40,18 @@
                 }
             }
             let tri = new Triangle(4, 6);
-            console.log(tri.x);
-            console.log(tri.y);
             console.log(tri.getArea());
             // ======================================================================================
             class Circle extends Shape {
-                constructor(x, y, radius) {
-                    super(x, y);
+                constructor(radius) {
                     this.radius = radius;
                 }
                 getArea() {
                     return 3.14 * this.radius * this.radius;
                 }
             }
+            let circle = new Circle(5);
+            console.log(circle.getArea());
         </script>
     </body>
 </html>

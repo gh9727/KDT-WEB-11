@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 상속
+            class House {
+                constructor(str) {
+                    this.str = str;
+                }
+                door() {
+                    console.log('문을 열고 닫습니다');
+                }
+                window() {
+                    console.log('창문을 열고 닫습니다');
+                }
+            }
+            const hos1 = new House();
+            hos1.door();
+            hos1.window();
+            // Apartment가 부모 House를 상속받음 : House 클래스 생성자(super()) 및 메소드를 사용할 수 있음
+            class Apartment extends House {
+                constructor(str) {
+                    // 자식 클래스 생성자 정의할 때 super() 키워드 써서 부모 생성자 사용가능함 + super() 가장 먼저 써야함
+                    super(str);
+                }
+                // 메서드 오버라이딩 : 부모 클래스 메서드를 자식 클래스에서 재정의
+                // super 키워드 사용하여 부모 클래스 메서드에 접근
+                window() {
+                    super.window(); // 부모 클래스 window() 호출
+                    console.log('창문을 열 수 없습니다.');
+                }
+                elevator() {
+                    console.log('엘레베이터를 탑승합니다');
+                }
+            }
+
+            const apart = new Apartment('자이');
+            apart.window();
+            apart.door();
+            apart.elevator();
+        </script>
+    </body>
+</html>
