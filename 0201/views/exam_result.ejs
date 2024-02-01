@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <hr />
+        <h2><%=title %></h2>
+        <div><%=userinfo.name %>님 환영합니다.</div>
+        <div><%=userinfo.name %>님 성별은 <%=userinfo.gender %></div>
+        <div><%=userinfo.name %>님 생년월일은 <%=userinfo.year %>년<%=userinfo.month %>월<%=userinfo.day %>일</div>
+        <div><%=userinfo.name %>님 관심사는 <%=userinfo.interest %></div>
+        <% if(userinfo.color.result){ %>
+        <div><%=userinfo.name %>님 좋아하는 색상은 <%=userinfo.color %></div>
+        <% } %> <% if(userinfo.num.result){ %>
+        <div><%=userinfo.name %>님 좋아하는 숫자는 <%=userinfo.num %></div>
+        <% } %>
+
+        <br />
+        <br />
+        <a href="/exam">홈으로 이동</a>
+    </body>
+</html>

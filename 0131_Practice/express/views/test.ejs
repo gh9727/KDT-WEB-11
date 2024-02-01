@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- css 경로 지정 주의 -->
+        <link rel="stylesheet" href="./public/css/test.css" />
+    </head>
+    <body>
+        <h1>Hello ejs</h1>
+        <ul>
+            <!-- 실수 : 객체 접근 → . 연산자 사용하기!! -->
+            <% for(let i = 0; i < 3; i++) { %>
+            <li class="<%= classes[i].class %>"><%= lists[i].list%></li>
+            <% } %>
+        </ul>
+    </body>
+</html>
