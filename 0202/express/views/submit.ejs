@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form onsubmit="submitFunc(event)" name="submit-form">
+            <label for="name">이름</label>
+            <input type="text" id="name" required /><br />
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email" /><br />
+            <button type="submit">제출</button>
+        </form>
+        <script>
+            function submitFunc(event) {
+                event.preventDefault(); // 기본 제출(submit) 동작 막음
+                const form = document.forms['submit-form'];
+                console.log(event);
+                console.log(form.name);
+                console.log(form.email);
+                console.log(form.name.value);
+                console.log(document.getElementById('name').value);
+                console.log(form.email.value);
+            }
+        </script>
+    </body>
+</html>

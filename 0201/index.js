@@ -28,11 +28,11 @@ app.get('/exam', (req, res) => {
 });
 
 app.get('/exam_getForm', (req, res) => {
-    const { username, gender, year, month, day, interest, color, num } = req.query;
+    const { name, gender, year, month, day, interest, color, num } = req.query;
     res.render('exam_result', {
         title: ' GET 요청결과',
         userinfo: {
-            username,
+            name,
             gender,
             year,
             month,
@@ -46,18 +46,18 @@ app.get('/exam_getForm', (req, res) => {
 });
 
 app.post('/exam_postForm', (req, res) => {
-    const { username, gender, year, month, day, interest, color, num } = req.body;
+    const { name, gender, year, month, day, interest, color, num } = req.body;
     res.render('exam_result', {
         title: ' POST 요청결과',
         userinfo: {
-            username,
+            name,
             gender,
             year,
             month,
             day,
             interest,
-            color: { result: false, color: color },
-            num: { result: false, num: num },
+            color: { result: true, color: color },
+            num: { result: true, num: num },
         },
     }); // 데이터 정보 전달 받기
 });

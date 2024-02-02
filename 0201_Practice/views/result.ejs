@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2><%=title %></h2>
+        <h4><%=userinfo.username%></h4>
+        <ul>
+            <li>성별은 <%=userinfo.gender%></li>
+            <li>생년월일은 <%=userinfo.year%>-<%=userinfo.month%>-<%=userinfo.date%></li>
+            <% if(userinfo.interest.return) { %>
+            <li>관심사는 <%=userinfo.interest.interest%></li>
+            <% } %> <% if(userinfo.color.return) { %>
+            <li>좋아하는색상은 <%=userinfo.color.color%></li>
+            <% } %> <% if(userinfo.number.return) { %>
+            <li>좋아하는숫자는 <%=userinfo.number.number%></li>
+            <% } %>
+        </ul>
+    </body>
+</html>

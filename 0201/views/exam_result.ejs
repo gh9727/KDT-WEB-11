@@ -13,9 +13,9 @@
         <div><%=userinfo.name %>님 생년월일은 <%=userinfo.year %>년<%=userinfo.month %>월<%=userinfo.day %>일</div>
         <div><%=userinfo.name %>님 관심사는 <%=userinfo.interest %></div>
         <% if(userinfo.color.result){ %>
-        <div><%=userinfo.name %>님 좋아하는 색상은 <%=userinfo.color %></div>
+        <div><%=userinfo.name %>님 좋아하는 색상은 <%=userinfo.color.color %></div>
         <% } %> <% if(userinfo.num.result){ %>
-        <div><%=userinfo.name %>님 좋아하는 숫자는 <%=userinfo.num %></div>
+        <div><%=userinfo.name %>님 좋아하는 숫자는 <%=userinfo.num.num %></div>
         <% } %>
 
         <br />

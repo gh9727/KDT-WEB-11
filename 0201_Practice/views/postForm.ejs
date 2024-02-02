@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="/postResult" method="post">
+            <label for="username">이름</label>
+            <input type="text" id="username" name="username" />
+
+            <fieldset style="width: 800px">
+                <legend>성별</legend>
+                <input type="radio" id="men" name="gender" value="남자" />
+                <label for="men">남자</label>
+
+                <input type="radio" id="women" name="gender" value="여자" />
+                <label for="women">여자</label>
+            </fieldset>
+            <fieldset style="width: 800px">
+                <legend>생년월일</legend>
+                <select name="year" id="year">
+                    <% for(let year = 1970; year <= new Date().getFullYear(); year++){ %>
+                    <option value="<%=year %>"><%=year %></option>
+                    <% } %>
+                </select>
+                <label for="year">년</label>
+
+                <select name="month" id="month">
+                    <% for(let month = 1; month <= 12; month++){ %>
+                    <option value="<%=month %>"><%=month %></option>
+                    <% } %>
+                </select>
+                <label for="month">월</label>
+
+                <select name="date" id="date">
+                    <% for(let date = 1; date <= 31; date++){ %>
+                    <option value="<%=date %>"><%=date %></option>
+                    <% } %>
+                </select>
+                <label for="date">일</label>
+            </fieldset>
+            <fieldset style="width: 800px">
+                <legend>선택 숫자</legend>
+                <label for="color">좋아하는 색상</label>
+                <input type="color" name="color" id="color" />
+                <label for="number">좋아하는 숫자</label>
+                <input type="number" name="number" id="number" />
+            </fieldset>
+            <button type="submit">회원가입</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <form name="myForm">
+            <label for="username">이름</label>
+            <input type="text" id="username" name="username" />
+
+            <fieldset style="width: 800px">
+                <legend>성별</legend>
+                <input type="radio" id="men" name="gender" value="남자" />
+                <label for="men">남자</label>
+
+                <input type="radio" id="women" name="gender" value="여자" />
+                <label for="women">여자</label>
+            </fieldset>
+            <fieldset style="width: 800px">
+                <legend>생년월일</legend>
+                <select name="year" id="year">
+                    <% for(let year = 1970; year <= new Date().getFullYear(); year++){ %>
+                    <option value="<%=year %>"><%=year %></option>
+                    <% } %>
+                </select>
+                <label for="year">년</label>
+
+                <select name="month" id="month">
+                    <% for(let month = 1; month <= 12; month++){ %>
+                    <option value="<%=month %>"><%=month %></option>
+                    <% } %>
+                </select>
+                <label for="month">월</label>
+
+                <select name="date" id="date">
+                    <% for(let date = 1; date <= 31; date++){ %>
+                    <option value="<%=date %>"><%=date %></option>
+                    <% } %>
+                </select>
+                <label for="date">일</label>
+            </fieldset>
+            <fieldset style="width: 800px">
+                <legend>관심사</legend>
+                <input type="checkbox" name="interest" id="travel" value="여행" />
+                <label for="travel">여행</label>
+                <input type="checkbox" name="interest" id="fashion" value="패션" />
+                <label for="fashion">패션</label>
+                <input type="checkbox" name="interest" id="food" value="음식" />
+                <label for="food">여행</label>
+            </fieldset>
+            <button type="button" onclick="register()">회원가입</button>
+        </form>
+        <br />
+        <div class="box"></div>
+
+        <script>
+            const resultBox = document.querySelector('.box');
+            function register() {
+                const form = document.forms['myForm'];
+                const interest = [];
+                const checked = form.querySelectorAll('input[type="checkbox"]:checked');
+                checked.forEach((elem) => {
+                    interest.push(elem.value);
+                });
+                const data = {
+                    username: form.username.value,
+                    usergender: form.gender.value,
+                    useryear: form.year.value,
+                    usermonth: form.month.value,
+                    userdate: form.date.value,
+                    userinter: interest,
+                };
+                axios({
+                    method: 'GET',
+                    url: '/axios',
+                    params: data,
+                }).then((res) => {
+                    console.log(res);
+                    resultBox.textContent = `이름 : ${res.data.username}   성별 : ${res.data.usergender}  
+                    생년월일 : ${res.data.useryear}년도 ${res.data.usermonth}월 ${res.data.userdate}일
+                    관심사 : ${res.data.userinter}`;
+                });
+            }
+        </script>
+    </body>
+</html>
