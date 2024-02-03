@@ -12,7 +12,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/axios', (req, res) => {
-    console.log(req.query);
     // const { username, usergender, useryear, usermonth, userdate, userinter } = req.query;
     res.send(req.query);
 });

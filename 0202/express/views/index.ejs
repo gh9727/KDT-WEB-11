@@ -122,7 +122,7 @@
                 const form = document.forms['register-form'];
                 // 백엔드 url 입력 시 전송할 데이터 : 쿼리스트링(GET) 방식으로 전달
                 const url = `?name=${form.name.value}&email=${form.email.value}`;
-
+                // fetch(url, 프론트 ↔ 백엔드 연동 객체 )
                 fetch(`/fetch${url}`, {
                     method: 'GET',
                 })

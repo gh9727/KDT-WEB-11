@@ -1,0 +1,6 @@
+0118 20:11
+// devel 브랜치 상태에서 했음
+1.기존 map.html 을 map1.html 로 바꾸고 내 mark.html 을 map.html 로 파일명만 변경함
+
+2. main페이지 버튼 기능 추가하기 위해서 git branch add/main-mobile 브랜치 생성
+
