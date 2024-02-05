@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>동적 파일 업로드 연습</h2>
+        <input type="file" name="userfile" id="userfile" /><br />
+        <button type="button" onclick="upload()">업로드</button>
+        <br />
+        <br />
+        <img src="" alt="" id="img" />
+    </body>
+    <script>
+        function upload() {
+            const formData = new FormData();
+            const file = document.querySelector('#userfile');
+            formData.append('userfile', file.files[0]);
+
+            axios({
+                method: 'POST',
+                url: '/fileUpload',
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data', // enctype 속성 지정하기!!
+                },
+            }).then((res) => {
+                console.log(res);
+                document.querySelector('#img').src = res.data.path;
+            });
+        }
+    </script>
+</html>

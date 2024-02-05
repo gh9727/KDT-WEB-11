@@ -5,7 +5,8 @@ const app = express();
 const PORT = 8000;
 
 app.set('view engine', 'ejs');
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
 const upload = multer({
@@ -16,22 +17,21 @@ const upload = multer({
 
         filename(req, file, done) {
             const ext = path.extname(file.originalname);
-            const newName = path.basename(file.originalname, ext) + Date.now() + ext;
+            const newName = req.body.userId + ext; // 파일명 userId로 변경! req 매개변수 활용! -> 라우터 req 접근방식과 동일함!
             done(null, newName);
         },
     }),
     limits: { fileSize: 5 * 1024 * 1024 },
 });
-
+// path.basename(file.originalname
 app.get('/', (req, res) => {
     res.render('register');
 });
 
 app.post('/login', upload.single('userfile'), (req, res) => {
     const { userId, userPw, userName, userAge } = req.body;
-    // 객체의 구조에 접근 : 구조 분해 할당
-    // 객체의 key에 접근 : 변수 할당
     const userfile = req.file.path;
+    console.log(req.body);
     res.render('client', { userId, userPw, userName, userAge, userfile });
 });
 

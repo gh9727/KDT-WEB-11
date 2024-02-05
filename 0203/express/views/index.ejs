@@ -52,6 +52,7 @@
                 // append(key, value) 메서드
                 formData.append('title', title);
                 formData.append('file', file.files[0]); // 꼭 파일 마지막에 쓰기
+                console.log(file);
 
                 const res = await axios({
                     method: 'POST',
