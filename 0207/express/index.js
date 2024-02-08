@@ -6,6 +6,7 @@ const PORT = 8000;
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // 해당 폴더의 /index.js 는 생략 가능!!! , comment.js 는 생략 불가능 !!!!
 // const router = require('./routes/index.js'); // 내가 작성한 router 모듈 불러오기 + js 생략가능

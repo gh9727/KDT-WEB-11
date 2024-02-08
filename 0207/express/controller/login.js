@@ -7,8 +7,8 @@ exports.main = (req, res) => {
 exports.login = (req, res) => {
     const { userId, userPw } = req.body;
     // 모듈 객체 접근 실수!!!!!!!!!
-    console.log(login.id);
-    console.log(login.pw);
+    console.log(req.body);
+    // console.log(login.pw);
     if (login.id === userId && login.pw === userPw) {
         const message = {
             success: {
@@ -17,7 +17,6 @@ exports.login = (req, res) => {
             },
             fail: { result: false },
         };
-
         res.send(message);
     } else {
         const message = {

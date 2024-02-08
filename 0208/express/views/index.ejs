@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>사용자 리스트</h1>
+        <ul>
+            <% for(let i = 0; i < users.length; i++) { %>
+            <li>
+                <span><%= users[i].name %></span>
+                <span><%= users[i].gender %></span>
+                <span><%= users[i].major %></span>
+            </li>
+            <% } %>
+        </ul>
+        <br />
+        <div>
+            <form name="reigster-form">
+                <input type="text" id="username" name="username" placeholder="이름" /><br />
+                <input type="text" id="usergender" name="usergender" placeholder="성별" /><br />
+                <input type="text" id="usermajor" name="usermajor" placeholder="전공" /><br />
+                <button type="button" onclick="register()">등록</button>
+            </form>
+        </div>
+        <script>
+            function register() {
+                const form = document.forms['reigster-form'];
+                const data = {
+                    name: form.username.value,
+                    gender: form.usergender.value,
+                    major: form.usermajor.value,
+                };
+                axios({
+                    method: 'POST',
+                    url: '/register',
+                    data,
+                }).then((res) => {
+                    document.location.reload();
+                });
+            }
+        </script>
+    </body>
+</html>
