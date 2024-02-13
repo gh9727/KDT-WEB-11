@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset style="width: 500px">
+            <legend><%=userid %> 정보 수정</legend>
+            <input type="text" id="userid" placeholder="아이디" />
+            <button type="button" onclick="editId()">아이디 수정</button>
+            <br />
+            <input type="text" id="pw" placeholder="비밀번호" />
+            <button type="button" onclick="editPw()">비밀번호 수정</button>
+            <br />
+        </fieldset>
+        <script>
+            async function editId() {
+                const res = await axios({
+                    method: 'PATCH',
+                    url: '/api/editId',
+                    data: {
+                        userid: document.querySelector('#userid').value,
+                    },
+                });
+                if (res.data.result) {
+                    alert('정상적으로 변경되었습니다.');
+                    alert('재 로그인이 필요합니다.');
+                    window.location.href = '/';
+                }
+            }
+            async function editPw() {
+                const res = await axios({
+                    method: 'PATCH',
+                    url: '/api/editPw',
+                    data: {
+                        pw: document.querySelector('#pw').value,
+                    },
+                });
+                if (res.data.result) {
+                    alert('정상적으로 변경되었습니다.');
+                    alert('재 로그인이 필요합니다.');
+                    window.location.href = '/';
+                }
+            }
+        </script>
+    </body>
+</html>

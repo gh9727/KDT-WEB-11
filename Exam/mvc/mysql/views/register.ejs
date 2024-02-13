@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset style="width: 500px">
+            <legend>회원가입</legend>
+            <input type="text" id="userid" placeholder="아이디" required /> <br />
+            <input type="text" id="pw" placeholder="비밀번호" required /> <br />
+            <input type="text" id="name" placeholder="이름" required /> <br />
+            <button type="button" onclick="registerFunc()">등록</button>
+        </fieldset>
+    </body>
+    <script>
+        async function registerFunc() {
+            const res = await axios({
+                method: 'POST',
+                url: '/api/register',
+                data: {
+                    userid: document.querySelector('#userid').value,
+                    pw: document.querySelector('#pw').value,
+                    name: document.querySelector('#name').value,
+                },
+            });
+            if (res.data.result) {
+                alert('회원으로 등록되었습니다.');
+                window.location.href = '/';
+            }
+        }
+    </script>
+</html>

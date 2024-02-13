@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset style="width: 500px">
+            <legend>로그인</legend>
+            <input type="text" id="userid" placeholder="아이디" /> <br />
+            <input type="password" id="pw" placeholder="비밀번호" /> <br />
+            <div id="resultBox"></div>
+            <button id="login" type="button" onclick="loginFunc()">로그인</button>
+            <button type="button"><a href="/register">회원가입</a></button> <br />
+            <div id="btnBox"></div>
+        </fieldset>
+    </body>
+    <script>
+        async function loginFunc() {
+            const legend = document.querySelector('legend');
+            const resultBox = document.querySelector('#resultBox');
+            const btnBox = document.querySelector('#btnBox');
+            const login = document.querySelector('#login');
+            const res = await axios({
+                method: 'POST',
+                url: '/api/login',
+                data: {
+                    userid: document.querySelector('#userid').value,
+                    pw: document.querySelector('#pw').value,
+                },
+            });
+            if (res.data.result) {
+                resultBox.textContent = ' ';
+                legend.textContent = `${res.data.userid}님 환영합니다`;
+                login.textContent = '로그아웃';
+                // 로그아웃
+                login.onclick = function () {
+                    window.location.href = '/';
+                };
+                const html = `
+                <button id="edit" type="button"><a href="/edit">정보 수정</a></button>
+                <button id="delete" type="button"><a href="/delete">회원 탈퇴</a></button>
+                `;
+                btnBox.insertAdjacentHTML('beforeend', html);
+            } else {
+                resultBox.textContent = '아이디 또는 비밀번호를 잘못 입력하셨습니다.';
+                resultBox.style.color = 'red';
+            }
+        }
+    </script>
+</html>

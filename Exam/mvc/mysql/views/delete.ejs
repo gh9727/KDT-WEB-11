@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset style="width: 500px">
+            <legend>회원 탈퇴</legend>
+            <input type="text" id="userid" placeholder="아이디" />
+            <br />
+            <input type="password" id="pw" placeholder="비밀번호" />
+            <br />
+            <button type="button" onclick="deleteUser()">탈퇴하기</button>
+            <div id="result"></div>
+        </fieldset>
+    </body>
+    <script>
+        const result = document.querySelector('#result');
+        async function deleteUser() {
+            const res = await axios({
+                method: 'DELETE',
+                url: '/api/delete',
+                data: {
+                    userid: document.querySelector('#userid').value,
+                    pw: document.querySelector('#pw').value,
+                },
+            });
+            if (res.data.result) {
+                alert('탈퇴가 정상적으로 이루어졌습니다.');
+                alert('재 로그인이 필요합니다.');
+                window.location.href = '/';
+            } else {
+                result.textContent = '아이디 혹은 비밀번호를 잘못 입력하셨습니다.';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</html>
