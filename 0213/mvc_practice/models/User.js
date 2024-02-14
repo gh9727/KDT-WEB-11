@@ -30,6 +30,7 @@ const UserModel = (sequelize) => {
             timestamps: false,
         }
     );
+    return User;
 };
 
 module.exports = UserModel;

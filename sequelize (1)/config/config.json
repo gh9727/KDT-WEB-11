@@ -1,9 +1,9 @@
 {
     "development": {
-        "username": "Wale",
-        "password": "s99h123k123!",
-        "database": "kdtdb",
-        "host": "localhost",
+        "username": "newkdt",
+        "password": "1234",
+        "database": "kdt11",
+        "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "test": {
