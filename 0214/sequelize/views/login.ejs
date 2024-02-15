@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>로그인 페이지</h1>
+        <form name="login-form">
+            <fieldset style="width: 500px">
+                <legend>로그인</legend>
+                <input type="text" id="userid" placeholder="아이디" /><br />
+                <input type="password" id="pw" placeholder="비밀번호" /><br />
+                <div id="failBox"></div>
+                <br />
+                <button type="button" onclick="loginFunc()">로그인</button>
+            </fieldset>
+            <script>
+                const form = document.forms['login-form'];
+                async function loginFunc() {
+                    const res = await axios({
+                        method: 'POST',
+                        url: '/api/user/login',
+                        data: {
+                            userid: form.userid.value,
+                            pw: form.pw.value,
+                        },
+                    });
+                    if (res.data.result) {
+                        alert(`${res.data.data}님 환영합니다`);
+                        document.location.href = '/post';
+                    } else {
+                        const fail = document.querySelector('#failBox');
+                        fail.textContent = '아이디 혹은 비밀번호를 잘못 입력하셨습니다';
+                        fail.style.color = 'red';
+                    }
+                }
+            </script>
+        </form>
+    </body>
+</html>

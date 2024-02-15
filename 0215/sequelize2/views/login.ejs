@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>로그인</h1>
+        <a href="/">이전 페이지</a>
+        <form name="login-form">
+            <input type="text" id="userId" placeholder="아이디" /><br />
+            <input type="password" id="pw" placeholder="비밀번호" /><br />
+            <button type="button" onclick="loginFunc()">로그인</button>
+        </form>
+        <script>
+            async function loginFunc() {
+                const form = document.forms['login-form'];
+                const res = await axios({
+                    method: 'POST',
+                    url: '/api/member/login',
+                    data: {
+                        userId: document.querySelector('#userId').value,
+                        pw: document.querySelector('#pw').value,
+                    },
+                });
+                if (res.data.result) {
+                    alert('로그인 성공');
+                    // localStorage : 브라우저에 정보를 저장, 브라우저가 닫혀도 계속 유지
+                    // sessionStorage : 브라우저에 정보를 저장, 브라우저 닫히면 정보 삭제
+                    console.log(res);
+                    localStorage.setItem('login', res.data.data.id);
+                    document.location.href = '/post';
+                } else {
+                    alert('아이디나 비밀번호가 틀립니다');
+                }
+            }
+        </script>
+    </body>
+</html>
