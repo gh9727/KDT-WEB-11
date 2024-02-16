@@ -1,18 +1,31 @@
 const express = require('express');
 const db = require('./models');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const app = express();
 const PORT = 8000;
 
 //미들웨어
 app.set('view engine', 'ejs');
 app.use(express.json());
-
+app.use(cookieParser());
+app.use(
+    session({
+        secret: 'my-board', // 세션 암호화 비밀키
+        resave: false, // 항상 세션 저장할지 여부 : false 권장
+        saveUninitialized: true, // 초기화되지 않는 세션을 스토어에 저장
+        cookie: {
+            httpOnly: true, // 클라에서 쿠키를 확인하지 못하도록함
+            secure: false, // https 에서만 사용
+        },
+    })
+);
 //라우터
 const indexRouter = require('./routes');
 app.use('/', indexRouter);
 const postRouter = require('./routes/post');
 app.use('/api/post', postRouter);
-const memberRouter = require('./routes/memberRouter');
+const memberRouter = require('./routes/member');
 app.use('/api/member', memberRouter);
 
 //404
