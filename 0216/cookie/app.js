@@ -22,14 +22,11 @@ const cookieConfig = {
     httpOnly: true,
     maxAge: 60 * 1000, // 1분
 };
-
 // router
 app.get('/', (req, res) => {
     res.render('index');
 });
 app.get('/setCookie', (req, res) => {
-    // 쿠키이름, 쿠키값, 옵션객체
-
     res.cookie('myCookie', 'myValue', cookieConfig);
     res.send('쿠키 설정하기');
 });
@@ -37,7 +34,6 @@ app.get('/getCookie', (req, res) => {
     res.send(req.cookies.myCookie);
 });
 app.get('/clearCookie', (req, res) => {
-    // 쿠키 삭제
     res.clearCookie('myCookie');
     res.send('쿠키 삭제');
 });
