@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- socket.io 모듈을 설치하면 해당 페이지를 기본적으로 제공 -->
+        <!-- socket.io에서 제공하는 js를 script를 써서 사용 가능 -->
+        <script src="/socket.io/socket.io.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Socket.io</h1>
+
+        <ul></ul>
+        <form id="chat">
+            <input type="text" id="user" placeholder="사용자명" />
+            <input type="text" id="message" placeholder="채팅내용" />
+            <button>채팅</button>
+        </form>
+        <script>
+            const socket = io();
+            const chatForm = document.querySelector('#chat');
+            const ul = document.querySelector('ul');
+            // 이벤트 생성하기
+            socket.emit('open_message', '접속되었습니다.', 'ㅎㅎㅎㅎ', '어서오세요', (res, res2, res3) => {
+                console.log('클라이언트', res, res2, res3);
+            });
+            socket.on('back_message', (arg) => {
+                const li = document.createElement('li');
+                li.textContent = `${arg.user}: ${arg.msg}`;
+                ul.appendChild(li);
+            });
+            // 폼 이벤트
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // chatForm에 해당하는 html 요소를 가져올 수 있음
+                const user = chatForm.querySelector('#user');
+                const msg = chatForm.querySelector('#message');
+                socket.emit('form_message', { user: user.value, msg: msg.value }, () => {});
+            });
+        </script>
+    </body>
+</html>

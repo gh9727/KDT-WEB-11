@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="/socket.io/socket.io.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <form id="hello">
+            <button id="hello">hello</button>
+        </form>
+        <form id="study">
+            <button id="study">study</button>
+        </form>
+        <form id="bye">
+            <button id="bye">bye</button>
+        </form>
+        <div id="result"></div>
+        <script>
+            const socket = io();
+
+            const resultBox = document.querySelector('#result');
+
+            socket.on('back_hello', (arg) => {
+                resultBox.textContent = `${arg.hello} : 안녕하세요`;
+            });
+            socket.on('back_study', (arg) => {
+                resultBox.textContent = `${arg.study} : 공부하세요`;
+            });
+            socket.on('back_bye', (arg) => {
+                resultBox.textContent = `${arg.bye} : 잘가~`;
+            });
+
+            const helloForm = document.querySelector('#hello');
+            helloForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const hello = 'hello';
+                socket.emit('hello', { hello }, () => {});
+            });
+
+            const studyForm = document.querySelector('#study');
+            studyForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const study = 'study';
+                socket.emit('study', { study }, () => {});
+            });
+
+            const byeForm = document.querySelector('#bye');
+            byeForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const bye = 'bye';
+                socket.emit('bye', { bye }, () => {});
+            });
+        </script>
+    </body>
+</html>
