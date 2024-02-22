@@ -1,0 +1,15 @@
+#room1 {
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+}
+
+#message {
+    position: relative;
+    left: 15px;
+    top: 10px;
+    width: 500px;
+    height: 30px;
+    /* backgroun    d-color: white; */
+    color: black;
+}

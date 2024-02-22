@@ -1,0 +1,66 @@
+#body {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    display: hidden;
+    background-color: aqua;
+}
+
+#chat {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#chat input {
+    width: 80%;
+}
+
+.my-chat {
+    display: flex;
+    justify-content: end;
+    padding: 2px 0px;
+}
+.my-chat p {
+    margin: 0;
+    padding: 10px;
+    background-color: yellow;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.other-chat {
+    display: flex;
+    justify-content: start;
+    padding: 2px 0px;
+}
+
+.other-chat p {
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+#notice {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: gray;
+}
+#notice p {
+    margin: 0;
+}
+#message {
+    position: relative;
+    left: 15px;
+    top: 10px;
+    width: 500px;
+    height: 30px;
+
+    color: black;
+}
+.secret-chat p {
+    background-color: pink;
+}
