@@ -1,5 +1,5 @@
 const express = require('express');
-const { main, post, detail, write, signup, login, profile } = require('../controller');
+const { main, post, detail, write, signup, login, profile } = require('../controller/Cpage');
 
 const router = express.Router();
 

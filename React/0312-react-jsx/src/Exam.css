@@ -1,0 +1,71 @@
+.container {
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
+.circle1 {
+  background-color: skyblue;
+  top: 30px;
+  left: 30px;
+  z-index: 1;
+}
+.circle2 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background-color: white;
+  top: 48px;
+  left: 50px;
+  z-index: 2;
+}
+.circle3 {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background-color: black;
+  top: 55px;
+  left: 55px;
+  z-index: 3;
+}
+
+.circle4 {
+  background-color: rgb(59, 102, 203);
+  top: 60px;
+  left: 100px;
+  z-index: 2;
+}
+.circle5 {
+  background-color: rgb(40, 59, 150);
+  top: 120px;
+  left: 150px;
+  z-index: 3;
+}
+.circle6 {
+  background-color: rgb(222, 177, 177);
+  top: 120px;
+  left: 200px;
+  z-index: 4;
+}
+.circle7 {
+  background-color: rgb(48, 80, 21);
+  top: 110px;
+  left: 250px;
+  z-index: 5;
+}
+
+.container > img {
+  position: absolute;
+  top: 100px;
+  z-index: 4;
+}
+
+/* CSS 파일에서 Img 가져오는 방법 */
+.grass-bg {
+  background-image: url('./grass.png');
+}

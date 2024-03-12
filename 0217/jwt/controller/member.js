@@ -35,8 +35,9 @@ exports.login = async (req, res) => {
     }
 };
 //회원조회
-exports.find = async (req, res) => {
-    const { id } = req.user; //auth 미들웨어에서 보내주는값
+exports.profile = async (req, res) => {
+    // const { id } = req.user; //auth 미들웨어에서 보내주는값
+    // const { id } = req.query;
     console.log(req.user);
     //findByPk
     //const find = await Member.findOne({ where: { id } });
@@ -49,10 +50,9 @@ exports.find = async (req, res) => {
 };
 //정보수정
 exports.update = async (req, res) => {
-    const { pw, username, age, email } = req.body;
-    const { id } = req.user;
-    const result = await Member.update({ password: pw }, { where: { id } });
-    console.log('update', result);
+    const { id, pw, username, age, email } = req.body;
+    // const { id } = req.user;
+    await Member.update({ password: pw }, { where: { id } });
     await Profile.update({ username, age, email }, { where: { memberId: id } });
     res.json({ result: true });
 };

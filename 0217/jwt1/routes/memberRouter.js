@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('../controller/member');
+const controller = require('../controller/Cmember');
 const middleware = require('../middleware'); //사용자 인증정보 미들웨어 추가
 
 const router = express.Router();

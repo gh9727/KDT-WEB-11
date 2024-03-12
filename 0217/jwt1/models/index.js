@@ -12,7 +12,7 @@ db.Member = require('./member')(sequelize);
 db.Profile = require('./profile')(sequelize);
 db.Comment = require('./comment')(sequelize, Sequelize);
 
-//1:1
+//1:1 Profile 외래키 설정: memberId ==> Member 테이블 속성 기본키 id 참조
 db.Member.hasOne(db.Profile, { foreignKey: 'memberId', onDelete: 'CASCADE' }); //foreignKey: 'memberId': Profile 모델에서 참조하는 외래 키
 db.Profile.belongsTo(db.Member, { foreignKey: 'memberId', onDelete: 'CASCADE' });
 

@@ -2,18 +2,21 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./models');
 const app = express();
-const PORT = 8000;
+const PORT = 8030;
 
 //미들웨어
 app.set('view engine', 'ejs');
 app.use(express.json());
 
 //라우터
-const indexRouter = require('./routes');
-app.use('/', indexRouter);
-const postRouter = require('./routes/post');
+//페이지 : 화면만 보이기
+const pageRouter = require('./routes/pageRouter');
+app.use('/', pageRouter);
+//게시판: 게시판 글쓰기 + 게시판 작성글 조회하기
+const postRouter = require('./routes/postRouter');
 app.use('/api/post', postRouter);
-const memberRouter = require('./routes/member');
+//사용자: 회원가입하기 + 로그인하기 + 사용자 데이터 조회/수정/삭제 하기
+const memberRouter = require('./routes/memberRouter');
 app.use('/api/member', memberRouter);
 
 //404

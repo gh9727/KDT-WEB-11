@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <title>Document</title>
+        <style>
+            #body {
+                width: 100%;
+                height: 70vh;
+                position: relative;
+                background-color: rgb(147 228 201);
+            }
+            #chat {
+                position: absolute;
+                bottom: 0px;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            #chat input {
+                width: 80%;
+            }
+            .my-chat {
+                display: flex;
+                justify-content: end;
+                padding: 2px 0px;
+            }
+            .my-chat p {
+                margin: 0;
+                padding: 10px;
+                background-color: yellow;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+            .other-chat {
+                display: flex;
+                justify-content: start;
+                padding: 2px 0px;
+            }
+            .other-chat p {
+                margin: 0px;
+                padding: 10px;
+                background-color: white;
+                border-radius: 10px;
+                margin-left: 10px;
+            }
+            #notice {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>소켓 연습</h1>
+        <div id="main">
+            <!-- <form id="room-form"> -->
+            <div class="roomName1" value="오픈채팅방1" hidden>오픈채팅방1</div>
+            <div class="roomName2" value="오픈채팅방2" hidden>오픈채팅방2</div>
+            <div class="roomName3" value="오픈채팅방3" hidden>오픈채팅방3</div>
+            <!-- 유저 이름은 GET해서 얻어올거임 -->
+            <input type="text" id="userName" /><br />
+            <button type="button" onclick="openChat1()">오픈채팅방1 참여</button><br />
+            <button type="button" onclick="openChat2()">오픈채팅방2 참여</button><br />
+            <button type="button" onclick="openChat3()">오픈채팅방3 참여</button><br />
+            <!-- </form> -->
+            <!-- <ul id="lists"></ul> -->
+        </div>
+        <div id="body" hidden>
+            <div id="message">
+                <div id="notice"></div>
+                <div id="ExitMessage"></div>
+            </div>
+            <form id="chat-form">
+                <input type="text" id="chatMessage" placeholder="메세지 입력" />
+                <button>입력</button>
+            </form>
+            <br />
+            <button type="button" onclick="Exit()">방 나가기</button>
+            <br /><br />
+            <div id="viewChat"></div>
+            <ul id="userList"></ul>
+        </div>
+        <script>
+            let myName;
+            const socket = io();
+            const roomForm = document.querySelector('#room-form');
+            const chatForm = document.querySelector('#chat-form');
+            const notice = document.querySelector('#notice');
+            const ExitMessage = document.querySelector('#ExitMessage');
+            const message = document.querySelector('#message');
+            //새 참여자 알림=================================================
+            socket.on('notice', (res) => {
+                console.log('새로 참여한 참가자', res);
+                const div = document.createElement('div');
+                const p = document.createElement('p');
+                p.textContent = res;
+                div.appendChild(p);
+                notice.appendChild(div);
+            });
+            //방에 있는 유저 리스트 갱신=======================================
+            socket.on('userList', (res) => {
+                console.log('@@@ userList  ', res[0].username);
+                const users = document.querySelector('#userList'); // ul 태그
+                let user_list = '';
+                for (let i = 0; i < res.length; i++) {
+                    user_list += `<li>${res[i].username}</li>`;
+                }
+                users.innerHTML = user_list;
+                console.log(users);
+            });
+            //브라우저(사용자) 채팅 전송 이벤트===============================================
+            socket.on('showMessage', (res) => {
+                const { user, message } = res.res;
+                const viewChat = document.querySelector('#viewChat');
+                // viewChat.textContent = `${user} : ${message}`;
+                const div = document.createElement('div');
+                const p = document.createElement('p');
+                if (myName === user) {
+                    // 내가 입력한 텍스트
+                    div.classList.add('my-chat');
+                } else {
+                    // 상대가 입력한 텍스트
+                    div.classList.add('other-chat');
+                }
+                p.textContent = `${user}: ${message}`;
+                div.appendChild(p);
+                viewChat.appendChild(div);
+                console.log(res);
+            });
+            //누군가 방을 나갔을 시 방 참여자에게 알림 메시지====================
+            socket.on('ExitMessage', (res) => {
+                // console.log(res.message);
+                console.log('누군가 나간 후 유저 리스트 갱신', res.userList);
+                ExitMessage.textContent = res.message;
+            });
+            //오픈채팅방1======================================================
+            async function openChat1() {
+                viewChat.textContent = '';
+                ExitMessage.textContent = '';
+                notice.textContent = '';
+                const roomName = $('.roomName1').attr('value');
+                const userName = document.querySelector('#userName').value;
+                console.log(userName);
+                console.log(roomName);
+                const main = document.querySelector('#main');
+                const body = document.querySelector('#body');
+                main.hidden = true;
+                body.hidden = false;
+                localStorage.setItem('openChat', $('.roomName1').attr('value')); // 로컬 스토리지 방정보 저장
+                socket.emit('part', { roomName, userName });
+                // const newWindow = window.open(`/chat?roomName=${roomName}`, '_blank');
+                myName = userName;
+            }
+            //오픈채팅방2===================================================
+            async function openChat2() {
+                viewChat.textContent = '';
+                ExitMessage.textContent = '';
+                notice.textContent = '';
+                const roomName = $('.roomName2').attr('value');
+                const userName = document.querySelector('#userName').value;
+                console.log(userName);
+                console.log(roomName);
+                const main = document.querySelector('#main');
+                const body = document.querySelector('#body');
+                main.hidden = true;
+                body.hidden = false;
+                localStorage.setItem('openChat', $('.roomName2').attr('value')); // 로컬 스토리지 방정보 저장
+                socket.emit('part', { roomName, userName });
+                myName = userName;
+            }
+            //오픈채팅방3=====================================================
+            async function openChat3() {
+                viewChat.textContent = '';
+                ExitMessage.textContent = '';
+                notice.textContent = '';
+                const roomName = $('.roomName3').attr('value');
+                const userName = document.querySelector('#userName').value;
+                console.log(userName);
+                console.log(roomName);
+                const main = document.querySelector('#main');
+                const body = document.querySelector('#body');
+                main.hidden = true;
+                body.hidden = false;
+                localStorage.setItem('openChat', $('.roomName3').attr('value')); // 로컬 스토리지 방정보 저장
+                socket.emit('part', { roomName, userName });
+                myName = userName;
+            }
+            //브라우저(사용자) 채팅 전송 이벤트===============================================
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const message = chatForm.querySelector('#chatMessage');
+                const user = chatForm.querySelector('#userList');
+                socket.emit('sendMessage', { message: message.value, user: myName });
+                message.value = '';
+            });
+            //브라우저(사용자) 방 나가기 이벤트===============================================
+            async function Exit() {
+                // 유저 정보 및 방 정보
+                const roomName = localStorage.getItem('openChat');
+                const userName = myName;
+                main.hidden = false;
+                body.hidden = true;
+                localStorage.clear();
+                socket.emit('Exit', { roomName, userName });
+            }
+        </script>
+    </body>
+</html>

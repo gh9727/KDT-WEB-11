@@ -12,9 +12,7 @@ exports.all = async (req, res) => {
 //하나 조회
 exports.post = async (req, res) => {
     console.log(req.params.id);
-    //const result = await Post.findOne({ where: { id: req.params.id } });
-    // include: [{ model: Comment }] == include: Comment 는 동일 결과
-    // include: 쿼리를 실행할때 관련된 모델의 데이터도 함께 조회할 수 있도록 하는 옵션
+
     const result = await Post.findByPk(req.params.id, { include: [{ model: Comment }] });
     res.json({ success: true, result });
 };

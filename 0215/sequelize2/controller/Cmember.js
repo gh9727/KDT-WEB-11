@@ -48,7 +48,7 @@ exports.update = async (req, res) => {
     console.log('id,pw,username', id, pw, username);
     const member = await Member.update({ password: pw }, { where: { id } });
     const profile = await Profile.update({ username, age, email }, { where: { id } });
-    res.json({ result: true, data: { member, profile } });
+    res.json({ result: true, data: { member, profile }, success: '수정에 성공하였습니다' });
 };
 exports.delete = async (req, res) => {
     const { id } = req.body;

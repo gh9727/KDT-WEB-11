@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 
 exports.auth = (req, res, next) => {
     const header = req.headers.authorization;
-    //req.headers['authorization']
     console.log(header);
     if (!header) {
         return res.status(401).json({ success: false });
