@@ -13,7 +13,7 @@ function Exam() {
       <div className="circle circle7"></div>
       <img src={logo} />
       {/* public img 접근 */}
-      <img src="/logo192.png" alt="" />
+      {/* <img src="/logo192.png" alt="" /> */}
     </div>
   );
 }
