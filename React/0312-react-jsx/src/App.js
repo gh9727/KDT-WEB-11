@@ -33,13 +33,7 @@ function App() {
       <br />
       <label htmlFor="pw">비밀번호 : </label>
       <input type="text" id="pw" />
-      {/* <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>Hello World</p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header> */}
+
       {/* JSX 문법 */}
       {/* 1. 하나로 감싸인 요소 */}
       {/* 2. JavaScript 표현식 사용

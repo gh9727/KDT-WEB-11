@@ -12,7 +12,6 @@ function DrinkList() {
     setSelected(true);
     setName(Coffee_name);
     if (coffeeState.includes(Coffee_name)) {
-      setSelected(true);
       alert('이미 선택한 음료입니다.');
       return;
     }
