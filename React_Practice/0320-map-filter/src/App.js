@@ -1,13 +1,10 @@
 import './App.css';
-import Exam from './Exam';
-import Exam2 from './Exam2';
+import MapEx from './MapEx';
 
 function App() {
   return (
     <div className="App">
-      <Exam />
-      <hr />
-      <Exam2 />
+      <MapEx />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import RefExam from './RefExam';
 import FunctionRef1 from './FunctionRef1';
 import FunctionRef2 from './FunctionRef2';
 import RefExam2 from './RefExam2';
+import Practice from './Practice';
 function App() {
   return (
     <div className="App">
@@ -20,7 +21,8 @@ function App() {
       <hr />
       {/* 함수형 컴포넌트: useRef()를 로컬 변수로 사용 */}
       {/* <FunctionRef2 /> */}
-      <RefExam2 />
+      {/* <RefExam2 /> */}
+      <Practice />
     </div>
   );
 }

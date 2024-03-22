@@ -1,13 +1,10 @@
 import './App.css';
-import Exam from './Exam';
-import Exam2 from './Exam2';
+import State from './component/State';
 
 function App() {
   return (
     <div className="App">
-      <Exam />
-      <hr />
-      <Exam2 />
+      <State />
     </div>
   );
 }
